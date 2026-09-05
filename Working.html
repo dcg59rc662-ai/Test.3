@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AURELIAN — Fine Timepieces</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #090807;
+    color: #e9e1d2;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    z-index: 100;
+    background: rgba(9,8,7,.82);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,.07);
+}
+
+.logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 27px;
+    letter-spacing: 7px;
+    color: #d6bd8a;
+}
+
+.nav-links {
+    display: flex;
+    gap: 38px;
+}
+
+.nav-links a {
+    color: #bcb4a7;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: #d6bd8a;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 20px 80px;
+    background:
+        radial-gradient(circle at 50% 45%, rgba(132,102,55,.18), transparent 32%),
+        linear-gradient(180deg,#100e0c,#090807);
+}
+
+.hero-content {
+    max-width: 900px;
+}
+
+.est {
+    color: #9d8b6c;
+    letter-spacing: 5px;
+    font-size: 10px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(65px, 13vw, 145px);
+    font-weight: 300;
+    letter-spacing: 16px;
+    color: #d8c39b;
+    line-height: .9;
+}
+
+.hero p {
+    max-width: 520px;
+    margin: 35px auto;
+    color: #918a80;
+    line-height: 1.9;
+    font-size: 13px;
+}
+
+.scroll {
+    margin-top: 70px;
+    color: #716a61;
+    font-size: 9px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.watch-stage {
+    margin: 55px auto 0;
+    width: 250px;
+    height: 250px;
+    position: relative;
+}
+
+.watch {
+    width: 145px;
+    height: 145px;
+    border-radius: 50%;
+    border: 8px solid #b7a27b;
+    background: radial-gradient(circle,#27221b,#0b0a09 70%);
+    position: absolute;
+    left: 52px;
+    top: 52px;
+    box-shadow:
+        0 0 35px rgba(190,155,90,.18),
+        inset 0 0 20px #000;
+    animation: float 5s ease-in-out infinite;
+}
+
+.watch:before,
+.watch:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform-origin: bottom;
+    background: #d4c49f;
+    border-radius: 5px;
+}
+
+.watch:before {
+    width: 2px;
+    height: 43px;
+    transform: rotate(35deg);
+}
+
+.watch:after {
+    width: 3px;
+    height: 32px;
+    transform: rotate(130deg);
+}
+
+.crown {
+    position: absolute;
+    right: -15px;
+    top: 56px;
+    width: 10px;
+    height: 23px;
+    border-radius: 3px;
+    background: #aa9369;
+}
+
+.marker {
+    position: absolute;
+    width: 2px;
+    height: 7px;
+    background: #bba77e;
+    left: 50%;
+    top: 5px;
+    transform-origin: 1px 67px;
+}
+
+.marker:nth-child(1) { transform: rotate(30deg); }
+.marker:nth-child(2) { transform: rotate(60deg); }
+.marker:nth-child(3) { transform: rotate(90deg); }
+.marker:nth-child(4) { transform: rotate(120deg); }
+.marker:nth-child(5) { transform: rotate(150deg); }
+.marker:nth-child(6) { transform: rotate(180deg); }
+.marker:nth-child(7) { transform: rotate(210deg); }
+.marker:nth-child(8) { transform: rotate(240deg); }
+.marker:nth-child(9) { transform: rotate(270deg); }
+.marker:nth-child(10) { transform: rotate(300deg); }
+.marker:nth-child(11) { transform: rotate(330deg); }
+
+@keyframes float {
+    0%,100% { transform: translateY(0) rotate(-3deg); }
+    50% { transform: translateY(-13px) rotate(3deg); }
+}
+
+section {
+    padding: 120px 8%;
+}
+
+.section-label {
+    color: #917e5e;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-size: 10px;
+    margin-bottom: 22px;
+}
+
+.section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(42px,6vw,75px);
+    color: #d8c9ae;
+}
+
+.intro {
+    max-width: 750px;
+    margin: auto;
+    text-align: center;
+}
+
+.intro p {
+    color: #8c857b;
+    line-height: 2;
+    font-size: 14px;
+    margin-top: 30px;
+}
+
+.story {
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    background: #0d0b09;
+}
+
+.story-inner {
+    max-width: 700px;
+}
+
+.story p {
+    color: #8c857b;
+    line-height: 2;
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+.founder {
+    background: #0a0908;
+}
+
+.founder-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.founder-portrait {
+    min-height: 480px;
+    background:
+        radial-gradient(circle at center, rgba(190,158,100,.16), transparent 40%),
+        linear-gradient(145deg,#17130f,#090807);
+    border: 1px solid rgba(214,189,138,.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.portrait-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 100px;
+    color: rgba(214,189,138,.15);
+}
+
+.founder-copy p {
+    color: #8c857b;
+    line-height: 2;
+    margin-top: 25px;
+    font-size: 14px;
+}
+
+.signature {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    color: #c7b28b;
+    margin-top: 35px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    border-top: 1px solid rgba(255,255,255,.08);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    padding: 45px 0;
+    margin-top: 80px;
+    text-align: center;
+}
+
+.stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    color: #c9b48b;
+}
+
+.stat-label {
+    color: #706a62;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 8px;
+}
+
+.catalogue {
+    background: #0d0b09;
+}
+
+.catalogue-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 60px;
+}
+
+.catalogue-header p {
+    color: #706a62;
+    font-size: 12px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 22px;
+}
+
+.product {
+    background: #12100d;
+    border: 1px solid rgba(255,255,255,.06);
+    padding: 25px;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: .5s;
+}
+
+.product:hover {
+    transform: translateY(-8px);
+    border-color: rgba(214,189,138,.35);
+}
+
+.product-image {
+    height: 360px;
+    background:
+        radial-gradient(circle at center,rgba(185,148,81,.13),transparent 35%),
+        #0b0a08;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.mini-watch {
+    width: 165px;
+    height: 165px;
+    border-radius: 50%;
+    border: 8px solid #a9936a;
+    background: radial-gradient(circle,#29241c,#090807 70%);
+    box-shadow: 0 15px 50px rgba(0,0,0,.7);
+    position: relative;
+    transition: .6s;
+}
+
+.product:hover .mini-watch {
+    transform: scale(1.06) rotate(5deg);
+}
+
+.mini-watch:before,
+.mini-watch:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform-origin: bottom;
+    background: #d2c09c;
+}
+
+.mini-watch:before {
+    width: 2px;
+    height: 45px;
+    transform: rotate(25deg);
+}
+
+.mini-watch:after {
+    width: 3px;
+    height: 34px;
+    transform: rotate(125deg);
+}
+
+.product-info {
+    padding-top: 24px;
+}
+
+.product-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 29px;
+    color: #d4c2a0;
+}
+
+.product-sub {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #746d63;
+    margin-top: 7px;
+    text-transform: uppercase;
+}
+
+.product-price {
+    margin-top: 18px;
+    color: #a89470;
+    font-size: 12px;
+}
+
+.craftsmanship {
+    text-align: center;
+}
+
+.craftsmanship p {
+    max-width: 700px;
+    margin: 30px auto;
+    color: #8c857b;
+    line-height: 2;
+    font-size: 14px;
+}
+
+footer {
+    padding: 70px 8%;
+    border-top: 1px solid rgba(255,255,255,.07);
+    text-align: center;
+}
+
+.footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 35px;
+    letter-spacing: 8px;
+    color: #c7b38c;
+}
+
+footer p {
+    color: #625e57;
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-top: 20px;
+}
+
+@media(max-width:800px) {
+    .nav-links {
+        display: none;
+    }
+
+    .hero h1 {
+        letter-spacing: 8px;
+    }
+
+    .founder-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .catalogue-header {
+        display: block;
+    }
+
+    .catalogue-header p {
+        margin-top: 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">AURELIAN</div>
+
+    <div class="nav-links">
+        <a href="#story">Story</a>
+        <a href="#founder">Founder</a>
+        <a href="#catalogue">Collection</a>
+        <a href="#craftsmanship">Craft</a>
+    </div>
+</nav>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="est">EST. 1987 · GENEVA</div>
+
+        <h1>AURELIAN</h1>
+
+        <p>
+            Time, refined. A study in precision, restraint,
+            and enduring mechanical artistry.
+        </p>
+
+        <div class="watch-stage">
+            <div class="watch">
+
+                <div class="marker"></div>
+                <div class="marker"></div>
+                <div class="marker"></div>
+                <div class="marker"></div>
+                <div class="marker"></div>
+                <div class="marker"></div>
+                <div class="marker"></div>
+                <div class="marker"></div>
+                <div class="marker"></div>
+                <div class="marker"></div>
+                <div class="marker"></div>
+
+                <div class="crown"></div>
+
+            </div>
+        </div>
+
+        <div class="scroll">Discover the Maison ↓</div>
+
+    </div>
+
+</section>
+
+<section class="intro">
+
+    <div class="section-label">The Philosophy</div>
+
+    <div class="section-title">
+        Time is not measured.<br>
+        It is experienced.
+    </div>
+
+    <p>
+        Aurelian creates mechanical timepieces for those who
+        understand that true luxury is rarely loud. Every component
+        is considered. Every surface is deliberate. Every second
+        carries the mark of human hands.
+    </p>
+
+</section>
+
+<section class="story" id="story">
+
+    <div class="story-inner">
+
+        <div class="section-label">Our Story</div>
+
+        <div class="section-title">The First Tick</div>
+
+        <p>
+            In 1987, Elias Laurent established Aurelian in Geneva
+            with a singular ambition: to create watches that could
+            outlive the moment in which they were created.
+        </p>
+
+        <p>
+            The Maison began in a modest workshop overlooking the
+            Rhône. Laurent believed that a watch should reveal
+            nothing at first glance. Its character should emerge
+            slowly, through proportion, movement, and craftsmanship.
+        </p>
+
+        <p>
+            That philosophy remains at the heart of Aurelian today.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="founder" id="founder">
+
+    <div class="founder-grid">
+
+        <div class="founder-portrait">
+            <div class="portrait-text">EL</div>
+        </div>
+
+        <div class="founder-copy">
+
+            <div class="section-label">The Founder</div>
+
+            <div class="section-title">
+                Elias Laurent
+            </div>
+
+            <p>
+                Watchmaker. Engineer. Perfectionist.
+            </p>
+
+            <p>
+                Laurent believed that mechanical watchmaking was
+                more than engineering. To him, it was architecture
+                in miniature — hundreds of components working
+                together with almost impossible precision.
+            </p>
+
+            <p>
+                His guiding principle was simple:
+                <em>make less, but make it better.</em>
+            </p>
+
+            <div class="signature">
+                E. Laurent
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="stats">
+
+        <div>
+            <div class="stat-number">1987</div>
+            <div class="stat-label">Founded</div>
+        </div>
+
+        <div>
+            <div class="stat-number">37</div>
+            <div class="stat-label">Years of Craft</div>
+        </div>
+
+        <div>
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Mechanical</div>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="catalogue" id="catalogue">
+
+    <div class="catalogue-header">
+
+        <div>
+            <div class="section-label">The Collection</div>
+            <div class="section-title">The Maison</div>
+        </div>
+
+        <p>Three expressions of Aurelian philosophy.</p>
+
+    </div>
+
+    <div class="products">
+
+        <!-- MAISON I — CLICKABLE -->
+
+        <a href="maison-i.html" class="product">
+
+            <div class="product-image">
+
+                <div class="mini-watch"></div>
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-name">Maison I</div>
+
+                <div class="product-sub">
+                    Automatic · 39mm
+                </div>
+
+                <div class="product-price">
+                    $8,900
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <!-- MERIDIAN — NOT CLICKABLE -->
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <div class="mini-watch"
+                     style="border-color:#777; background:radial-gradient(circle,#202020,#080808 70%);">
+                </div>
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-name">Meridian</div>
+
+                <div class="product-sub">
+                    Automatic · 41mm
+                </div>
+
+                <div class="product-price">
+                    $12,400
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- OBSIDIAN — NOT CLICKABLE -->
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <div class="mini-watch"
+                     style="border-color:#555; background:radial-gradient(circle,#151515,#030303 70%);">
+                </div>
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-name">Obsidian</div>
+
+                <div class="product-sub">
+                    Automatic · 40mm
+                </div>
+
+                <div class="product-price">
+                    $15,800
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="craftsmanship" id="craftsmanship">
+
+    <div class="section-label">Craftsmanship</div>
+
+    <div class="section-title">
+        Made slowly.<br>
+        Made to remain.
+    </div>
+
+    <p>
+        Each Aurelian timepiece passes through dozens of stages of
+        assembly, regulation, finishing, and inspection.
+        Nothing is rushed. Nothing is unnecessary.
+    </p>
+
+</section>
+
+<footer>
+in
+    <div class="footer-logo">AURELIAN</div>
+
+    <p>
+        EST. 1987 · GENEVA · SWITZERLAND
+    </p>
+
+</footer>
+
+</body>
+</html>
