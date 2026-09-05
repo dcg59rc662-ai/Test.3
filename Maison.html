@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maison I — Aurelian</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap');
+:root {
+    --black:#070707;
+    --gold:#c7a96b;
+    --white:#f5f3ee;
+    --muted:#888;
+}
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+html {
+    scroll-behavior:smooth;
+}
+body {
+    background:var(--black);
+    color:var(--white);
+    font-family:Inter,sans-serif;
+}
+nav {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:80px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 7%;
+    z-index:100;
+    background:linear-gradient(to bottom,rgba(0,0,0,.9),transparent);
+}
+.logo {
+    font-family:"Cormorant Garamond";
+    font-size:27px;
+    letter-spacing:7px;
+}
+.back {
+    color:#aaa;
+    text-decoration:none;
+    font-size:10px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    transition:.3s;
+}
+.back:hover {
+    color:var(--gold);
+}
+.product-page {
+    min-height:100vh;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:50px;
+    padding:120px 8% 80px;
+}
+.watch-display {
+    height:650px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    background:radial-gradient(circle,#30291e,#0d0d0d 65%);
+    overflow:hidden;
+}
+.watch-display::before {
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(199,169,107,.18),transparent 65%);
+    filter:blur(30px);
+}
+.big-watch {
+    position:relative;
+    width:300px;
+    height:520px;
+    z-index:2;
+    animation:float 5s ease-in-out infinite;
+}
+@keyframes float {
+    0%,100% {
+        transform:translateY(0) rotate(-5deg);
+    }
+    50% {
+        transform:translateY(-18px) rotate(-2deg);
+    }
+}
+.strap {
+    position:absolute;
+    width:160px;
+    height:190px;
+    left:70px;
+    background:repeating-linear-gradient(
+        90deg,
+        #121212 0px,
+        #252525 4px,
+        #101010 8px
+    );
+    border-radius:30px;
+}
+.strap.top {
+    top:0;
+}
+.strap.bottom {
+    bottom:0;
+}
+.case {
+    position:absolute;
+    top:135px;
+    left:35px;
+    width:230px;
+    height:230px;
+    padding:11px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#eee,#777,#f4f4f4,#555);
+    box-shadow:0 30px 70px #000,inset 0 0 20px rgba(255,255,255,.6);
+}
+.face {
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    position:relative;
+    background:radial-gradient(circle at 30% 20%,#3c3c3c,#0a0a0a 65%);
+    box-shadow:inset 0 0 30px #000;
+}
+.face::after {
+    content:"AURELIAN";
+    position:absolute;
+    top:73px;
+    width:100%;
+    text-align:center;
+    font-family:"Cormorant Garamond";
+    font-size:14px;
+    letter-spacing:4px;
+    color:var(--gold);
+}
+.hand {
+    position:absolute;
+    left:50%;
+    bottom:50%;
+    transform-origin:bottom;
+    background:#eee;
+}
+.hour {
+    width:4px;
+    height:48px;
+    transform:rotate(35deg);
+}
+.minute {
+    width:3px;
+    height:70px;
+    transform:rotate(130deg);
+}
+.second {
+    width:1px;
+    height:80px;
+    background:var(--gold);
+    transform:rotate(220deg);
+    animation:second 60s linear infinite;
+}
+@keyframes second {
+    to {
+        transform:rotate(580deg);
+    }
+}
+.center {
+    position:absolute;
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    background:var(--gold);
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+}
+.details {
+    max-width:560px;
+}
+.eyebrow {
+    color:var(--gold);
+    font-size:10px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    margin-bottom:25px;
+}
+h1 {
+    font-family:"Cormorant Garamond";
+    font-weight:300;
+    font-size:clamp(65px,8vw,110px);
+    line-height:.8;
+}
+.subtitle {
+    color:#aaa;
+    margin-top:25px;
+    font-size:12px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+.description {
+    color:#999;
+    line-height:1.9;
+    font-size:14px;
+    margin-top:40px;
+    max-width:500px;
+}
+.specs {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+    margin-top:50px;
+    padding-top:30px;
+    border-top:1px solid #292929;
+}
+.spec {
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+.spec span:first-child {
+    color:#666;
+    font-size:9px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+.spec span:last-child {
+    font-family:"Cormorant Garamond";
+    font-size:22px;
+}
+.price {
+    margin-top:45px;
+    font-family:"Cormorant Garamond";
+    font-size:38px;
+    color:var(--gold);
+}
+.buy {
+    display:inline-block;
+    margin-top:25px;
+    padding:16px 35px;
+    border:1px solid var(--gold);
+    color:white;
+    text-decoration:none;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:9px;
+    transition:.4s;
+}
+.buy:hover {
+    background:var(--gold);
+    color:#000;
+}
+.story {
+    padding:140px 8%;
+    text-align:center;
+    background:#0d0d0d;
+}
+.story h2 {
+    font-family:"Cormorant Garamond";
+    font-size:70px;
+    font-weight:300;
+}
+.story p {
+    max-width:650px;
+    margin:30px auto;
+    color:#888;
+    line-height:2;
+    font-size:14px;
+}
+@media(max-width:850px) {
+    .product-page {
+        grid-template-columns:1fr;
+        padding-top:110px;
+    }
+    .watch-display {
+        height:520px;
+    }
+    .big-watch {
+        transform:scale(.8);
+    }
+    .details {
+        text-align:center;
+        margin:auto;
+    }
+    .description {
+        margin-left:auto;
+        margin-right:auto;
+    }
+}
+</style>
+</head>
+<body>
+<nav>
+    <div class="logo">
+        AURELIAN
+    </div>
+    <a href="index.html" class="back">
+        ← Back to Collection
+    </a>
+</nav>
+<main>
+<section class="product-page">
+<div class="watch-display">
+    <div class="big-watch">
+        <div class="strap top"></div>
+        <div class="case">
+            <div class="face">
+                <div class="hand hour"></div>
+                <div class="hand minute"></div>
+                <div class="hand second"></div>
+                <div class="center"></div>
+            </div>
+        </div>
+        <div class="strap bottom"></div>
+    </div>
+</div>
+<div class="details">
+    <div class="eyebrow">
+        Aurelian · Collection I
+    </div>
+    <h1>
+        Maison I
+    </h1>
+    <div class="subtitle">
+        Automatic · 39mm
+    </div>
+    <p class="description">
+        The Maison I is the purest expression of
+        Aurelian's original philosophy.
+        Its restrained 39mm case houses a carefully
+        regulated automatic movement beneath a
+        sapphire crystal.
+        Nothing is excessive.
+        Nothing is accidental.
+    </p>
+    <div class="specs">
+        <div class="spec">
+            <span>Movement</span>
+            <span>Automatic</span>
+        </div>
+        <div class="spec">
+            <span>Case</span>
+            <span>39mm</span>
+        </div>
+        <div class="spec">
+            <span>Crystal</span>
+            <span>Sapphire</span>
+        </div>
+        <div class="spec">
+            <span>Power Reserve</span>
+            <span>48 Hours</span>
+        </div>
+        <div class="spec">
+            <span>Water Resistance</span>
+            <span>100m</span>
+        </div>
+        <div class="spec">
+            <span>Case Material</span>
+            <span>Stainless Steel</span>
+        </div>
+    </div>
+    <div class="price">
+        $4,850
+    </div>
+    <a href="#" class="buy">
+        Inquire About Maison I
+    </a>
+</div>
+</section>
+<section class="story">
+    <div class="eyebrow">
+        The Maison I
+    </div>
+    <h2>
+        Designed to disappear.
+    </h2>
+    <p>
+        A watch should never compete with the person
+        wearing it.
+        Maison I was designed around that principle:
+        a balanced case, restrained dial and mechanical
+        movement whose complexity remains hidden
+        beneath an almost impossibly simple exterior.
+    </p>
+</section>
+</main>
+</body>
+</html>
